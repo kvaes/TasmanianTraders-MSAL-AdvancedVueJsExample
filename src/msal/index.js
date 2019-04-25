@@ -11,11 +11,12 @@ export default class AuthService {
     this.graphUrl = config.graphendpoint
     this.applicationConfig = {
       clientID: config.clientid,
+      authority: config.authority,
       graphScopes: config.graphscopes
     }
     this.app = new Msal.UserAgentApplication(
       this.applicationConfig.clientID,
-      '',
+      this.applicationConfig.authority,
       () => {
         // callback for login redirect
       },
